@@ -1,0 +1,3 @@
+anchoreApi:
+  service:
+    type: LoadBalancer
