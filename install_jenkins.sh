@@ -27,7 +27,7 @@ fi
 # looks like you have to go to the web console in order for it to create the admin password file
 JENKINS=$(curl --silent -H "Metadata-Flavor: Google" http://metadata/computeMetadata/v1/instance/network-interfaces/0/access-configs/0/external-ip)
 echo "http://$JENKINS:443"
-read -p "Please head here in your web browser and login using the administrator password. Then press any key to continue..."
+read -p "Please head here in your web browser and login using the administrator password. Select to install 'Suggested Plugins' and once complete, press any key to continue..."
 while true; do
    sudo docker exec -t  9bb1c832efaf cat /var/jenkins_home/secrets/initialAdminPassword
    if [ $? -eq 0 ]; then
