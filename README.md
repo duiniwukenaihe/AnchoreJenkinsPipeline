@@ -1,5 +1,5 @@
 # AnchoreJenkinsPipeline
-An example Jenkins pipeline that implements Anchore to scan containers for CVE's & vulnerabilities, a git pre-commit hooks to scan for secrets.
+An example Jenkins pipeline that implements Anchore to scan containers for CVE's & vulnerabilities, and git pre-commit hooks to scan for secrets.
 
 <img src="https://i0.wp.com/www.upnxtblog.com/wp-content/uploads/2017/11/kubernetes.jpg" width="100"><img src="https://xebialabs.com/wp-content/uploads/2018/10/helm-logo-1.jpg" width="100"><img src="https://symbiotics.co.za/wp-content/uploads/2016/01/continuous-integration-300x300.jpeg" width="100"><img src="https://anchore.com/wp-content/uploads/2019/04/Anchore_Logo-170x54.png" width="100">
 
