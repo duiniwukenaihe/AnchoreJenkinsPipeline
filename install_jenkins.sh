@@ -27,7 +27,7 @@ while true; do
    sleep 5
 done
 
-read -p "Now enter the admin password above, select "Install suggested plugins" and press any key once it completes..."
+read -p "Now enter the admin password above, select 'Install suggested plugins'. Once complete, create an account admin:admin and press any key once it completes..."
 wget localhost:443/jnlpJars/jenkins-cli.jar
 java -jar jenkins-cli.jar -s http://localhost:443 -auth admin:admin install-plugin blueocean
 java -jar jenkins-cli.jar -s http://localhost:443 -auth admin:admin install-plugin docker-plugin
