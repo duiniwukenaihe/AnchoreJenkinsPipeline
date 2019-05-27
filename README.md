@@ -1,7 +1,33 @@
 # AnchoreJenkinsPipeline
-An example Jenkins pipeline that implements Anchore to scan containers for CVE's & vulnerabilities.
+An example Jenkins pipeline that implements Anchore to scan containers for CVE's & vulnerabilities, a git pre-commit hooks to scan for secrets.
 
 <img src="https://i0.wp.com/www.upnxtblog.com/wp-content/uploads/2017/11/kubernetes.jpg" width="100"><img src="https://xebialabs.com/wp-content/uploads/2018/10/helm-logo-1.jpg" width="100"><img src="https://symbiotics.co.za/wp-content/uploads/2016/01/continuous-integration-300x300.jpeg" width="100"><img src="https://anchore.com/wp-content/uploads/2019/04/Anchore_Logo-170x54.png" width="100">
+
+## Clone this repo
+`git clone https://github.com/jimmyjamesbaldwin/AnchoreJenkinsPipeline.git`
+
+### Install git-secrets and setup pre-commit hooks
+```
+git clone https://github.com/awslabs/git-secrets.git
+make install
+cd /path/to/my/repo
+git secrets --install
+git secrets --add 'password\s*=\s*.+' # example
+git secrets --add 'Password\s*=\s*.+'
+```
+
+You can verify the hook is setup correctly by running the following:
+```
+jimmy$ cat .git/hooks/pre-commit 
+#!/usr/bin/env bash
+git secrets --pre_commit_hook -- "$@"
+```
+
+and from now on we can prevent developers from accidentally adding credentials to the repo!
+![](https://i.imgur.com/XFP68V7.png)
+
+
+...back on Anchore
 
 ## Spin up a jenkins build server
 First step is to setup a jenkins server and install a few plugins. I decided to setup a dedicated host for this, and as this isn't the most exciting thing in the world, I've scripted this process (tested on Ubuntu 18.10):
