@@ -14,7 +14,7 @@ stage('Configure') {
         error('Aborting build due to invalid input')
     }
 }
-
+agent { label  "build01" }
 node {
   def app
   def dockerfile
